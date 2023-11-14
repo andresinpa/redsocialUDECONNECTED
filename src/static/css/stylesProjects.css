@@ -1,0 +1,60 @@
+/* Estilo general para el cuerpo de la página */
+.container-projects {
+    background: linear-gradient(45deg,#122b4b, #07101b, #173761);
+    color: #c8f3c7;
+    text-align: center;
+    padding: 80px 0;
+    position: relative;
+    background-size: 200% 200%;
+    animation: gradientAnimation 20s ease infinite;
+    transition: background-color 0.3s;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 100% 0;
+    }
+    50% {
+        background-position: 0 100%;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.container-projects:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sutil sombra en el hover */
+}
+
+.container-projects ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.container-projects ul li {
+    margin: 30px 25%;
+    padding: 10px;
+    background-color: #c8f3c7; 
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgb(135, 41, 212);
+    transition: box-shadow 0.3s;
+}
+
+.container-projects ul li:hover {
+    box-shadow: 0 6px 10px rgb(64, 35, 83); 
+}
+
+.container-projects ul li h4 {
+    text-align: center;
+    color: #333;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.container-projects ul li p {
+    text-align: center;
+    color: #555;
+    font-size: 0.85rem;
+    font-weight: 600;
+}

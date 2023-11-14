@@ -1,0 +1,113 @@
+{% extends 'layout.html' %}
+{% block title %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesIndex.css')}}">
+<title>UdeConnected</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="container-form register">
+    <div class="information">
+        <div class="info-childs">
+            <h2>Bienvenido 👩‍💻</h2>
+            <p>
+                Para empezar a usar UdeConnected por favor Inicia Sesión con tus datos
+            </p>
+            <input type="button" value="Iniciar Sesión" id="sign-in">
+        </div>
+    </div>
+    <div class="form-information">
+        <div class="form-information-childs">
+            <h2>Crear una Cuenta</h2>
+            <form class="form-index" method="POST" action="/save_users">
+
+                <label for="name">
+                    <i class='bx bx-user'></i>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
+                </label>
+
+                <label for="email">
+                    <i class='bx bx-envelope'></i>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Correo electrónico"
+                        required>
+                </label>
+
+
+                <label for="new_username">
+                    <i class='bx bx-user-circle'></i>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Usuario"
+                        required>
+                </label>
+
+
+                <label for="new_password">
+                    <i class='bx bx-lock-alt'></i>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña"
+                        required>
+                </label>
+
+
+                <label for="new_rol">
+                    <i class='bx bxs-graduation'></i>
+                    <select class="form-select" aria-label="Profesor" name="role">
+                        <option selected>Profesor</option>
+                        <option value="Estudiante">Estudiante</option>
+                    </select>
+                </label>
+
+                <input type="submit" value="Registrarse">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-form login hide">
+    <div class="information">
+        <div class="info-childs">
+            <h2>🖐 Bienvenido nuevamente</h2>
+            <p>
+                Si aun no tienes una cuenta por favor registrate aquí
+            </p>
+            <input type="button" value="Registrarse" id="sign-up">
+        </div>
+    </div>
+    <div class="form-information">
+        <div class="form-information-childs">
+            <h2>Iniciar Sesión</h2>
+            <form class="form-index" method="POST" action="/login_session">
+
+                <label for="username">
+                    <i class='bx bx-user'></i>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Usuario"
+                        required>
+                </label>
+
+                <label for="password">
+                    <i class='bx bx-lock-alt'></i>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña"
+                        required>
+                </label>
+
+                <input type="submit" value="Iniciar Sesión">
+            </form>
+        </div>
+    </div>
+</div>
+<div class="alert-container">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <!-- Espacio para Mensajes Flash-->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <strong>{{ message }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}
+{% block footer %}
+{% endblock %}

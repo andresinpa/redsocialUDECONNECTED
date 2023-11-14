@@ -1,0 +1,279 @@
+/* Estilos para el contenedor del icono de cierre de sesión */
+.header-top {
+    position: absolute;
+    top: 10px; 
+    right: 10px; 
+}
+
+.navigation h3 {
+    font-size: 24px;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 56px;
+    text-align: center;
+    font-weight: 600;
+}
+.welcome-header {
+    background: linear-gradient(45deg,#bee6c2,#e8e9bb, #a2f0a2);
+    color: #145e20;
+    text-align: center;
+    padding: 30px 0;
+    position: relative;
+    background-size: 8% 200%;
+    animation: gradientAnimation 20s ease infinite;
+    transition: background-color 0.2s;
+}
+/* Estilo general para el cuerpo de la página */
+.container-start {
+    background: linear-gradient(45deg,#bee6c2,#e8e9bb, #a2f0a2);
+    color: rgb(8, 75, 7);
+    text-align: center;
+    padding: 80px 0;
+    position: relative;
+    background-size: 8% 200%;
+    animation: gradientAnimation 20s ease infinite;
+    transition: background-color 0.1s;
+}
+
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 100% 0;
+    }
+    50% {
+        background-position: 0 100%;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+.container-start:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sutil sombra en el hover */
+}
+
+.container-start h2 {
+    margin: 0 auto;
+    max-width: 960px;
+    width: 100%;
+    padding: 0 15px;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: bold;
+    line-height: 1.1;
+    font-size: 2rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    display: block;
+}
+
+.container-start ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.container-start ul li {
+    margin: 30px 25%;
+    padding: 10px;
+    background-color: rgb(247, 236, 191); 
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgb(110, 211, 97);
+    transition: box-shadow 0.3s;
+}
+
+.container-start ul li:hover {
+    box-shadow: 0 6px 10px rgb(238, 234, 26); 
+}
+
+.container-start ul li h4 {
+    text-align: center;
+    color: #333;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+
+.container-start a {
+    text-decoration: none;
+    color: #1690af;
+    font-weight: 60;
+    font-size: 30px;
+    flex-direction: column;
+    align-items: center;
+    transition: color 0.3s, box-shadow 0.3s;
+}
+/* Establecer el box-shadow inicial (sin resaltado) */
+.container-start a::before {
+    content: "";
+    position: absolute;
+    border: 2px solid transparent;
+    border-radius: 8px; 
+    box-shadow: 0 0 0 transparent; 
+    transition: box-shadow 0.3s; 
+}
+
+/* Resaltar el enlace al pasar el mouse */
+.container-start a:hover {
+    color: #000000; 
+}
+.container-start a span{
+    font-size: 15px;
+}
+
+
+.welcome-header:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+}
+
+.hidden-welcome {
+    display: none;
+}
+
+#toggleButton {
+    display: block;
+    margin: 20px auto; /* Centra el botón */
+    padding: 10px 20px;
+    background: #1690af;
+    color: #ffffff; /* Texto en color blanco */
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease; /* Agrega una transición suave al color de fondo */
+}
+
+#toggleButton:hover {
+    background: linear-gradient(45deg, #45a049, #0a813c); /* Cambia el gradiente al pasar el mouse */
+}
+
+.title {
+    font-size: 2.5rem;
+    transition: color 0.3s;
+    color: rgb(2, 41, 6);
+    font-weight: 600;
+}
+
+.title:hover {
+    color: rgb(56, 110, 68);
+}
+
+
+.welcome-header p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+
+/* Estilos para la barra de navegación */
+.navigation {
+    background: #000000;
+}
+.navigation ul {
+    list-style: none;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+}
+
+.navigation li {
+    position: relative;
+}
+
+/* Estilos para los iconos en los enlaces */
+.navigation i {
+    font-size: 24px; 
+}
+
+/* Estilos para los enlaces de navegación */
+.navigation a {
+    text-decoration: none;
+    color: #16af37;
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: color 0.3s, box-shadow 0.3s;
+}
+
+/* Establecer el box-shadow inicial (sin resaltado) */
+.navigation a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-radius: 8px; 
+    box-shadow: 0 0 0 transparent; 
+    transition: box-shadow 0.3s; 
+}
+
+/* Resaltar el enlace al pasar el mouse */
+.navigation a:hover {
+    color: #c8f3c7; 
+}
+
+/* Resaltar la sombra al pasar el mouse */
+.navigation a:hover::before {
+    box-shadow: 0 0 10px 2px #c8f3c7; 
+}
+
+.container-logo {
+    text-align: center;
+
+}
+
+.container-logo img {
+    max-width: 80%; /* La imagen no será más ancha que su contenedor */
+    height: 160px;   /* Mantiene la proporción de aspecto original de la imagen */
+}
+
+/* Estilos para el formulario de publicaciones */
+
+.publication-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa; /* Fondo gris claro */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #495057; /* Color de texto oscuro */
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da; /* Borde gris claro */
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745; /* Verde */
+    color: #fff; /* Texto blanco */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Agrega transición al color de fondo */
+}
+
+.form-button:hover {
+    background-color: #218838; /* Cambia el verde al pasar el mouse */
+}

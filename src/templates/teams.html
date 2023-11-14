@@ -1,0 +1,137 @@
+{%extends 'layout.html'%}
+{% block title %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTeams.css')}}">
+<title>Equipos</title>
+{% endblock %}
+{%block body%}
+
+<div class="container-teams">
+    <a href="{{ url_for('start') }}" class="home-icon">
+        <i class="bx bx-home"></i>
+    </a>
+
+    <h1 class="title">🧩 Mis equipos 🧩</h1>
+    <!-- Botón para abrir el modal de creación de equipos -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearEquipoModal">
+        Crear Nuevo Equipo
+    </button>
+    <br>
+    <!-- Lista de equipos -->
+    <ul>
+        {% for team in dataTeams.team %}
+        <li>
+            <h4>
+                <i class='bx bxl-microsoft-teams'></i>
+                {{ team[1] }}
+            </h4>
+            {%if dataTeams.role =='Profesor'%}
+            <button type="button" class="btn btn-success" data-toggle="modal"
+                data-target="#agregarUsuarioModal{{ team[0] }}">
+                Agregar Usuario
+            </button>
+            {%endif%}
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#MiembrosModal">
+                Miembros del equipo
+            </button>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Modal para crear equipos -->
+<div class="modal fade" id="crearEquipoModal" tabindex="-1" role="dialog" aria-labelledby="crearEquipoModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crearEquiposModalLabel">
+                    <i class='bx bx-group' ></i>
+                    Crear Nuevo Equipo
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulario para crear un nuevo equipo -->
+                <form method="POST" action="/save_teams">
+                    <div class="form-group">
+                        <label for="nameTeam">Nombre del Equipo</label>
+                        <input type="text" class="form-control" id="nameTeam" name="nameTeam" required>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Crear Equipo</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modales para agregar usuarios a equipos específicos -->
+{% for team in dataTeams.team %}
+<div class="modal fade" id="agregarUsuarioModal{{ team[0] }}" tabindex="-1" role="dialog"
+    aria-labelledby="agregarUsuarioModalLabel{{ team[0] }}" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="agregarUsuarioModalLabel{{ team[0] }}">Agregar Usuario a {{ team[1] }}
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulario para agregar un usuario al equipo actual -->
+                <form method="POST" action="/add_user_to_team">
+                    <input type="hidden" name="team_id" value="{{ team[0] }}">
+                    <div class="form-group">
+                        <label for="username">Nombre de Usuario </label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Agregar Usuario</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+<!-- Modal para visualizar los miembros del equipo -->
+<div class="modal fade" id="MiembrosModal" tabindex="-1" role="dialog" aria-labelledby="MiembrosModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="MiembrosModalLabel">Miembros del equipo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulario para crear un nuevo equipo -->
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <td class="td-head">Nombre</td>
+                            <td class="td-head">Correo</td>
+                            <td class="td-head">Rol</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for user in dataTeams.user%}
+                        <tr>
+                            <td>{{user[1]}}</td>
+                            <td>{{user[2]}}</td>
+                            <td>{{user[3]}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

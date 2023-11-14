@@ -1,0 +1,99 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesStart.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTasks.css')}}">
+<title>UdeConnected - Inicio</title>
+{% endblock %}
+
+{% block body %}
+<nav class="navigation">
+    <h3>UdeConnected</h3>
+    <ul>
+        <li><a href="{{ url_for('forums') }}"><i class='bx bx-folder-open'></i>Foros</a></li>
+        <li><a href="{{ url_for('teams') }}"><i class='bx bx-group'></i>Mis Equipos</a></li>
+        <li><a href="{{ url_for('ver_eventos') }}"><i class='bx bx-calendar-event'></i>Eventos Academicos</a></li>
+        <li><a href="{{ url_for('contenido') }}"><i class='bx bx-task'></i>Contenido Academicos</a></li>
+        <li><a href="{{ url_for('tasks') }}"><i class='bx bx-task'></i>Mis Tareas</a></li>
+        <li><a href="{{ url_for('chats') }}"><i class='bx bx-conversation'></i>Conversaciones</a></li>
+        <li><a href="{{ url_for('calendario_academico') }}"><i class='bx bx-calendar'></i>Calendario Academicos</a></li>
+        <li><a href="{{ url_for('editar_perfil') }}"><i class='bx bx-task'></i>Editar perfil</a></li>
+        <li><a href="{{ url_for('logout') }}" class="logout-icon"
+                onclick="return confirm('¿Esta seguro que desea salir?')">
+                <i class="bx bx-log-out"></i>
+            </a></li>
+    </ul>
+</nav>
+<button id="toggleButton">Mostrar/Ocultar Bienvenida</button>
+<div class="welcome-header hidden-welcome">
+
+    <div class="header-top">
+
+    </div>
+
+    <h1 class="title">🤖 {{ datos.user[3] }} 🤖</h1>
+    <p>¡Bienvenido a UdeConnected, tu vibrante comunidad académica en línea! Aquí, la conexión va más allá de las
+        aulas.
+        Sumérgete en un espacio donde la colaboración y el aprendizaje se entrelazan de manera única. Explora,
+        comparte
+        ideas, y forma parte de una red que potencia el conocimiento y la camaradería. ¡Aprovecha al máximo tu
+        experiencia académica mientras te conectas con tus compañeros de UdeConnected! 🚀📚</p>
+    <div class="container-logo">
+        <img src="\static\css\UdeConnected.png" alt="UdeConnected">
+    </div>
+    <script>
+        // Función para ocultar o mostrar el div de bienvenida
+        function toggleWelcome() {
+            var welcomeDiv = document.querySelector('.welcome-header');
+            welcomeDiv.classList.toggle('hidden-welcome');
+        }
+
+        // Añade un event listener al botón
+        var toggleButton = document.getElementById('toggleButton');
+        toggleButton.addEventListener('click', toggleWelcome);
+    </script>
+</div>
+
+<div class="container-start">
+    <h2>Publicaciones</h2>
+
+    <!-- Formulario para crear publicaciones -->
+    <form class="publication-form" action="{{ url_for('insert_publication') }}" method="post">
+        <label class="form-label" for="titulo">Título:</label>
+        <input class="form-input" type="text" id="titulo" name="titulo" required>
+
+        <label class="form-label" for="contenido">Contenido:</label>
+        <textarea class="form-textarea" id="contenido" name="contenido" rows="4" required></textarea>
+
+        <button class="form-button" type="submit">Publicar</button>
+    </form>
+
+
+    <!-- Lista de publicaciones -->
+    <ul>
+        {% for post in datos.posts %}
+        <li>
+            <h4 style="color: #084908">{{post[1]}}</h4>
+            <h5 style="color: #000000">{{ post[2] }}</h5>
+
+            <a href="{{ url_for('insert_reaction', post_id=post[0], reaccion='like') }}"><i class='bx bxs-like'
+                    style="color: #006eff"></i>
+                <span>{{ datos.reactions.get(post[0], {}).get('like', 0) }}</span></a>
+            <a href="{{ url_for('insert_reaction', post_id=post[0], reaccion='love') }}"><i
+                    class='bx bx-happy-heart-eyes' style="color: #f14268"></i>
+                <span>{{ datos.reactions.get(post[0], {}).get('love', 0) }}</span></a>
+
+            <a href="{{ url_for('insert_reaction', post_id=post[0], reaccion='wow') }}"><i class='bx bx-shocked'
+                    style="color: #9902fd"></i>
+                <span>{{ datos.reactions.get(post[0], {}).get('wow', 0) }}</span></a>
+            <br>
+            <a href="{{ url_for('eliminarPublicacion', id=post[0]) }}" class="button-eliminar"
+                onclick="return confirm('¿Esta seguro que desea eliminar esta publicacion?')">
+                <i class='bx bx-trash' style="color: #be3833;"></i>
+            </a>
+        </li>
+
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

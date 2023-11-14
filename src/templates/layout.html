@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%block title%}
+    {%endblock%}
+    <!-- Incluye la biblioteca de Bootstrap (asegúrate de que la ruta sea correcta) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+</head>
+
+<body>
+    {%block body%}
+    {%endblock%}
+    {% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="footer-logo">
+                        <img src="/static/css/UdeConnected.png" alt="Logo de UDEC-Soft">
+                    </div>
+                    <p class="footer-text">UdeConnected &copy; 2023. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6">
+                    <ul class="footer-social">
+                        <li><a href="https://www.facebook.com/ucundinamarcaoficial/" target="_blank"><i class='bx bxl-facebook'></i></a></li>
+                        <li><a href="https://twitter.com/UCundinamarca" target="_blank"><i class='bx bxl-twitter'></i></a></li>
+                        <li><a href="https://www.instagram.com/ucundinamarcaoficial/" target="_blank"><i class='bx bxl-linkedin'></i></a></li>
+                        <li><a href="https://www.linkedin.com/school/ucundinamarcaoficial/" target="_blank"><i class='bx bxl-instagram'></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {% endblock %}
+
+    <!-- Incluye los scripts de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

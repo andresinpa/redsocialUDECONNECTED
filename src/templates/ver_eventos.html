@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+{% block title %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTeams.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTasks.css')}}">
+<title>Eventos</title>
+{% endblock %}
+{% block body %}
+
+<div class="container-tasks">
+  <a href="{{ url_for('start') }}" class="home-icon">
+    <i class="bx bx-home"></i>
+</a>
+  <h2><strong>👩‍🎓 Eventos Académicos 👩‍🎓</strong></h2>
+  {% if datos.role == 'Profesor' %}
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearEquipoModal">
+    Crear Nuevo Evento
+  </button>
+  {% endif %}
+  <ul>
+    {% for evento in datos.eventos %}
+      <li>
+        <h5 style="color: #0a500a"><strong>{{ evento[1] }}</strong></h5>
+        <span style="color: #000000">{{ evento[2] }}</span><br>
+        <span style="color: #000044"><strong>Fecha de inicio: {{ evento[3] }}</strong></span><br>
+        <span style="color: #000044">Lugar: {{ evento[4] }}</span><br>
+      </li>
+    {% endfor %}
+  </ul>
+
+
+<!-- Modal para crear equipos -->
+<div class="modal fade" id="crearEquipoModal" tabindex="-1" role="dialog" aria-labelledby="crearEquipoModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crearEquiposModalLabel">
+                    <i class='bx bx-group' ></i>
+                    Crear Nuevo Evento
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulario para crear un nuevo equipo -->
+                <form method="POST" action="{{ url_for('crear_evento') }}">
+                    <div class="form-group">
+                        <label for="nameTeam">Titulo evento</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                      <label for="nameTeam">Descripción evento</label>
+                      <input type="text" class="form-control" id="description" name="description" required>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="nameTeam">Fecha de inicio</label>
+                    <input type="datetime-local" class="form-control" id="start_date" name="start_date" required>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="nameTeam">Lugar del evento</label>
+                  <input type="text" class="form-control" id="lugar" name="lugar" required>
+              </div>
+                    <button type="submit" class="btn btn-primary">Crear Evento</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

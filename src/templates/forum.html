@@ -1,0 +1,35 @@
+{%extends 'layout.html'%}
+{% block title %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTeams.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTasks.css')}}">
+<title>Tareas</title>
+{% endblock %}
+
+{%block body%}
+<div class="container-tasks">
+    <a href="{{ url_for('start') }}" class="home-icon">
+        <i class="bx bx-home"></i>
+    </a>
+<h1>{{ forum[1] }}</h1>
+<p>{{ forum[2] }}</p>
+<h2>Comentarios</h2>
+
+<!-- Formulario para crear un nuevo comentario -->
+<form action="{{ url_for('forum', forum_id=forum[0]) }}" method="post">
+    <label for="content">Comentario:</label>
+    <textarea id="content" name="content" required></textarea>
+    <button type="submit" class="btn btn-primary">Publicar Comentario</button>
+</form>
+
+<ul>
+    <!-- Mostrar la lista de comentarios -->
+    {% for comment in comments %}
+        <li>
+            <p style="color: #000000" >{{ comment[1] }}</p>
+            <p style="color: #000000">Publicado por: {{ comment[3] }}</p>
+            <p style="color: #000000">Fecha: {{ comment[2] }}</p>
+        </li>
+    {% endfor %}
+</ul>
+</div>
+{%endblock%}

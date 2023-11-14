@@ -1,0 +1,86 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*---------------- Mensajes Flash -------------------*/
+.alert-container {
+    position: fixed;
+    height: 50px;
+    bottom: 10px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.alert {
+    animation: slide-in 0.5s ease-in-out;
+    font-size: 12px;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+/*Error 404*/
+.error-404{
+
+    background-color: #000; 
+    color: #fff; 
+    text-align: center;
+    padding: 20px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    transition: box-shadow 0.3s; 
+}
+
+.error-404:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); 
+}
+
+/* Estilos para el footer */
+.footer {
+    background-color: rgb(255, 255, 255); 
+    color: rgb(6, 97, 6); 
+    padding: 2px;
+}
+
+.footer-logo {
+    text-align: center; /* Alinea el contenido al centro */
+}
+
+.footer-logo img {
+    max-width: 120px;
+    margin-left: 400px; /* Establece márgenes izquierdo y derecho automáticos para centrar la imagen */
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* Estilos para los iconos de redes sociales */
+.footer-social li {
+    
+    display: inline;
+    margin-right: 85px;
+}
+
+.footer-social i {
+
+    font-size: 2rem;
+    color: rgb(5, 153, 0);
+    margin-top: 100px;
+}
+
+/* Estilo para el hover de los iconos de redes sociales */
+.footer-social i:hover {
+    color: #ddd020; /* Verde */
+}

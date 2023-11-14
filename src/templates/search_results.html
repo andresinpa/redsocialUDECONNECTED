@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block title %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTeams.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTasks.css')}}">
+<title>Tareas</title>
+{% endblock %}
+{% block body %}
+
+<div class="container-tasks">
+    <a href="{{ url_for('start') }}" class="home-icon">
+        <i class="bx bx-home"></i>
+    </a>
+    <h1>Resultados de Búsqueda</h1>
+    <ul>
+        {% for usuario in users %}
+            <li>
+                <strong style="color: #000000">{{ usuario[2] }} - </strong>
+                {% if usuario[6]==False%}
+                    <a href="{{ url_for('send_friend_request', receiver_id=usuario[0]) }}">Enviar Solicitud de Amistad</a>
+                {%endif%}
+                {%if usuario[6]==True%}
+                <strong style="color: #000000" >Ya son amigos</strong>
+                {%endif%}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

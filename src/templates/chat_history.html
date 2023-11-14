@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block title %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesChats.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTasks.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTeams.css')}}">
+<title>Tareas</title>
+{% endblock %}
+
+{% block body %}
+<div class="container-chats">
+    <a href="{{ url_for('start') }}" class="home-icon">
+        <i class="bx bx-home"></i>
+    </a>
+
+    <h1 class="title">📩 Chat 📩</h1>
+    <div class="chat-history">
+
+        {% for message in chat_history %}
+        <div class="message {% if message[1] == user_data[0] %}sent{% else %}received{% endif %}">
+            <span class="message-sender">
+                <i class='bx bx-message-dots'></i>
+                {{ message[5] }}:
+            </span>
+            <span class="message-text">
+                {{ message[3] }}
+            </span>
+            <span class="message-timestamp">
+                {{ message[4] }}
+            </span>
+        </div>
+        {% endfor %}
+    </div>
+    <form method="POST" action="/send_message" class="message-form">
+        <div class="input-with-icon">
+            <i class='bx bx-send' ></i>
+            <input type="text" name="message_text" placeholder="Escribe tu mensaje" required>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+{% endblock %}

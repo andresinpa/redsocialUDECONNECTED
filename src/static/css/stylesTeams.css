@@ -1,0 +1,117 @@
+/* Estilo para el icono de casa en la parte superior */
+.home-icon {
+    position: fixed;
+    top: 10px; 
+    left: 10px; 
+    font-size: 42px; 
+    color: #1a73e8;
+    text-decoration: none;
+    transition: color 0.3s; 
+}
+
+
+.home-icon:hover {
+    color: #c8f3c7; 
+}
+
+
+/* Estilo general para el cuerpo de la página */
+.container-teams {
+    background: linear-gradient(45deg,#bee6c2,#e8e9bb, #a2f0a2);
+    color: #c8f3c7;
+    text-align: center;
+    padding: 80px 0;
+    position: relative;
+    background-size: 200% 200%;
+    animation: gradientAnimation 20s ease infinite;
+    transition: background-color 0.3s;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 100% 0;
+    }
+    50% {
+        background-position: 0 100%;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.container-teams:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+    font-size: 2.5rem;
+    transition: color 0.3s;
+    color: #053507;
+    font-weight: 600;
+    margin-bottom: 30px;
+    
+}
+
+.title:hover {
+    color: #1b5f37;
+}
+
+.container-teams ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.container-teams ul li {
+    margin: 30px 25%;
+    padding: 10px;
+    background-color: rgb(238, 232, 179); 
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(13, 170, 21);
+    transition: box-shadow 0.3s;
+}
+
+.container-teams ul li:hover {
+    box-shadow: 0 6px 10px rgba(9, 87, 48); 
+}
+
+.container-teams ul li h4 {
+    text-align: center;
+    color: #333;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+/* Estilo para los formularios dentro de los modales */
+.modal-body form {
+    margin: 20px 0;
+}
+
+.modal-body form label{
+    text-align: center;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px; 
+
+}
+
+.modal-title {
+    text-align: center;
+    color: #43c44a;;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+/* Estilo para los botones dentro de los modales */
+.btn-primary {
+    background-color: #00ffaa; 
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #00aaff; 
+}
+
+.td-head {
+    font-weight: 600;
+}

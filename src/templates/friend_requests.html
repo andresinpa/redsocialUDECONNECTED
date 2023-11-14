@@ -1,0 +1,26 @@
+
+{% extends 'layout.html' %}
+{% block title %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTeams.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTasks.css')}}">
+<title>Firends</title>
+{% endblock %}
+
+{% block body %}
+<div class="container-tasks">
+    <a href="{{ url_for('start') }}" class="home-icon">
+        <i class="bx bx-home"></i>
+    </a>
+    <!-- Mostrar solicitudes de amistad pendientes -->
+    <ul>
+        {% for request in friend_requests %}
+            <li>
+                <h2 style="color: #000000">{{ request[1] }} te ha enviado una solicitud de amistad.</h2>
+                <a href="{{ url_for('accept_friend_request', request_id=request[0]) }}">Aceptar</a>
+                <a href="{{ url_for('reject_friend_request', request_id=request[0]) }}">Rechazar</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{%endblock%}

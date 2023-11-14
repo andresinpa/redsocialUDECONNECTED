@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% block title %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTeams.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTasks.css')}}">
+<title>chats</title>
+{% endblock %}
+{% block body %}
+<div class="container-tasks">
+    <a href="{{ url_for('start') }}" class="home-icon">
+        <i class="bx bx-home"></i>
+    </a>
+    <h1 style="color: #003300"><strong>👨‍👦‍👦 Lista de Amigos 👨‍👦‍👦</strong></h1>
+    
+    <!-- Formulario de Búsqueda -->
+    <form action="{{ url_for('search_users') }}" method="post">
+        <label for="search_query">Buscar usuarios:</label>
+        <input type="text" id="search_query" name="search_query" required>
+        <button type="submit">Buscar</button>
+    </form>
+    
+    <ul>
+        {% for amigo in users %}
+            <li>
+                <h4 style="color: #0e640e"><strong>{{ amigo[2] }}</strong></h4>
+                <a href="{{ url_for('chat', receiver_id=amigo[0]) }}">Historial de Chat</a>
+            </li>
+        {% endfor %}
+        <li><a href="{{ url_for('friend_requests') }}"><i class='bx bx-task'></i>Solicitudes de amistad</a></li>
+    </ul>
+</div>
+
+{% endblock %}
+
+

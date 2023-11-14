@@ -1,0 +1,147 @@
+/* Estilos generales para la página de chat */
+.container-chats {
+    background: linear-gradient(45deg,#bee6c2,#e8e9bb, #a2f0a2);
+    color: #0e7a0c;
+    text-align: center;
+    background-size: 8% 200%;
+    animation: gradientAnimation 20s ease infinite;
+    transition: background-color 0.2s;
+    padding: 90px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 100% 0;
+    }
+    50% {
+        background-position: 0 100%;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.container-teams:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo para el ícono de inicio (casa) */
+.home-icon {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: #1a73e8; 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.home-icon:hover {
+    color: #025826; 
+}
+
+
+/* Estilos para el historial de chat */
+.chat-history {
+    border: 1.5px solid #ccc;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    overflow-y: auto; 
+    max-height: 400px;
+    border-color: #1ae847;
+    box-shadow: 0 2px 4px rgb(49, 161, 99);
+}
+
+/* Estilos para los mensajes */
+.message {
+    margin: 10px 0;
+}
+
+/* Estilos para mensajes "received" */
+.received {
+    text-align: left;
+    background-color: #baf5ec;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para mensajes "sent" */
+.sent {
+    text-align: right;
+    background-color: #d5dde7; 
+    color: #fff; 
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message-sender {
+    font-weight: 600;
+    color: #116609; 
+}
+
+.message-text {
+    color: #333;
+}
+
+.message-timestamp {
+    font-size: 12px;
+    color: #777; 
+}
+
+/* Estilos para el formulario de mensajes */
+.message-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 100px;
+    
+}
+
+.message-form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1.5px solid #ccc;
+    border-radius: 5px;
+    margin-right: 20px;
+    border-color: #1ae847;
+    box-shadow: 0 2px 4px rgb(49, 161, 99);
+    width: 95%;
+  
+}
+
+.message-form button {
+    background: #1a73e8; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.message-form button:hover {
+    background: #025826; 
+}
+
+.input-with-icon {
+    width: 120%;
+}
+
+/* Estilos para el ícono dentro del campo de texto */
+.input-with-icon i {
+    background-color: #1a73e8;
+    border-radius: 5px;
+    
+    top: 50%; 
+    transform: translateY(-50%); 
+    border-color: #1ae847;
+    box-shadow: 0 2px 4px rgb(49, 161, 99);
+    
+}

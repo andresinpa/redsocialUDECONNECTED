@@ -1,0 +1,149 @@
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url(formulario.png);
+    background-size: cover;
+
+}
+
+.container-form {
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, .1);
+    height: 570px;
+    max-width: 900px;
+    transition: all 1s ease;
+    margin: 10px;
+}
+
+.information {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #35bd33;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+}
+
+.info-childs {
+    width: 100%;
+    padding: 0 30px;
+}
+
+.info-childs h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.info-childs p {
+    margin:15px 0;
+    color: #ffffff;
+}
+
+.info-childs input {
+    background-color: transparent;
+    outline: none;
+    border: solid 2px rgb(241, 243, 106);
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: background-color .3s ease;
+    font-weight: bold;
+}
+
+.info-childs input:hover {
+    background-color: #1976D2;
+    border: none;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+}
+
+.form-information {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    text-align: center;
+    background-color: rgb(241, 243, 106);;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+}
+
+.form-information-childs {
+    padding: 0 30px;
+
+}
+
+.form-information-childs h2{
+    color: #333;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.form-information-childs p {
+    color: #555;
+}
+
+.form-index {
+    margin: 30px 0 0 0;
+
+}
+
+.form-index label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    padding: 0 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+
+}
+
+.form-index label input{
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    color: #333;
+}
+
+.form-index label i {
+    color: #a7a7a7;
+}
+
+.form-index label select {
+    color: #a7a7a7;
+    border: none;
+}
+
+.form-index input[type="submit"] {
+    background-color: #1976D2;
+    color: #fff;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+    font-weight: bold;
+
+}
+
+.form-index input[type="submit"]:hover {
+    background-color: #7a7a9a;
+}
+
+.hide {
+    position: absolute;
+    transform: translateY(-300%);
+}

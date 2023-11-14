@@ -1,0 +1,37 @@
+{%extends 'layout.html'%}
+{% block title %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTeams.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTasks.css')}}">
+
+<title>Tareas</title>
+{% endblock %}
+
+{%block body%}
+<div class="container-tasks">
+    <a href="{{ url_for('start') }}" class="home-icon">
+        <i class="bx bx-home"></i>
+    </a>
+    <h1><strong>👨‍🏫 Foros 👨‍🏫 </strong></h1>
+
+    <!-- Formulario para crear un nuevo foro -->
+    <form action="{{ url_for('forums') }}" method="post">
+        <label for="title">Título del Foro:</label>
+        <input type="text" id="title" name="title" required>
+        <label for="description">Descripción del Foro:</label>
+        <textarea id="description" name="description" required></textarea>
+        <button type="submit" class="btn btn-primary">Crear Foro</button>
+    </form>
+
+    <ul>
+        <!-- Mostrar la lista de foros existentes -->
+        {% for forum in forums %}
+            <li>
+                <strong style="color: #074407">{{ forum[1] }}</strong>
+                <p style="color: #000000">{{ forum[2] }}</p>
+                <p style="color: #05055e">Creado el: {{ forum[3] }}</p>
+               <a href="{{ url_for('forum', forum_id=forum[0]) }}">Ver Foro</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{%endblock%}

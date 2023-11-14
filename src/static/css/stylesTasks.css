@@ -1,0 +1,125 @@
+/* Estilo general para el cuerpo de la página */
+.container-tasks {
+    background: linear-gradient(45deg,#bee6c2,#e8e9bb, #a2f0a2);
+    color: #042e03;
+    text-align: center;
+    padding: 80px 0;
+    position: relative;
+    background-size: 200% 200%;
+    animation: gradientAnimation 20s ease infinite;
+    transition: background-color 0.3s;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 100% 0;
+    }
+    50% {
+        background-position: 0 100%;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.container-tasks:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sutil sombra en el hover */
+}
+
+.container-tasks ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.container-tasks ul li {
+    margin: 30px 25%;
+    padding: 10px;
+    background-color: #f3ecc7; 
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgb(101, 211, 97);
+    transition: box-shadow 0.3s;
+}
+
+.container-tasks ul li:hover {
+    box-shadow: 0 6px 10px rgb(223, 208, 73); 
+}
+
+.container-tasks ul li h4 {
+    text-align: center;
+    color: #333;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.container-tasks ul li .task-title {
+    text-align: center;
+    color: #122b4b;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.container-tasks ul li .task-date {
+    text-align: center;
+    color: #333;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.hide {
+    position: absolute;
+    transform: translateY(-2000%);
+}
+
+input[type="date"] {
+    border: 1px solid #1a73e8; 
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+}
+input[type="date"]:focus {
+    border-color: #025826; /* Cambio de color al enfocar el campo */
+}
+
+
+form {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}

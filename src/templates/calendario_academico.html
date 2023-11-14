@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTeams.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTasks.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesCaledario.css')}}">
+
+<title>Tareas</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="container-tasks">
+  <a href="{{ url_for('start') }}" class="home-icon">
+    <i class="bx bx-home"></i>
+  </a>
+  <h1>Calendario Académico</h1>
+
+  <!-- Primer botón -->
+  <a href="https://b24-dbwar9.bitrix24.co/company/personal/user/1/calendar/?user_lang=la" class="btn-mi-calendario" target="_blank">
+    Mi Calendario
+  </a>
+
+  <!-- Segundo botón -->
+  <a href="https://www.ucundinamarca.edu.co/documents/admisiones/2023/CALENDARIO-ACADEMICO-2023_v3.pdf" class="btn-descargar-calendario" target="_blank">
+    Descargar Calendario
+  </a>
+
+  <!-- Imagen de construcción -->
+  <img src="https://coptometristasmanabi.files.wordpress.com/2018/02/trabajando.gif" alt="En construcción" class="construction-image">
+</div>
+
+{% endblock %}

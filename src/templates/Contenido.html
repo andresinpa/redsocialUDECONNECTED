@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+{% block title %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTeams.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTasks.css')}}">
+<title>Contenido</title>
+{% endblock %}
+{% block body %}
+<div class="container-tasks">
+  <a href="{{ url_for('start') }}" class="home-icon">
+    <i class="bx bx-home"></i>
+  </a>
+  <h2><strong>📚 Contenidos Académicos 📚</strong> </h2>
+  {% if datos.role == 'Profesor' %}
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearEquipoModal">
+    Crear Nuevo Contenido
+  </button>
+  {% endif %}
+  <ul>
+    {% for contenido in datos.contenido %}
+    <li>
+      <h5 style="color: #085508"><strong>{{ contenido[1] }}</strong></h5>
+      <span style="color: #000044"">{{ contenido[2] }}</span><br>
+        <span style=" color: #000044"><strong>tipo de contenido: {{ contenido[3] }}</strong></span><br>
+    </li>
+    {% endfor %}
+  </ul>
+  
+
+  <!-- Modal para crear contenido -->
+  <div class="modal fade" id="crearEquipoModal" tabindex="-1" role="dialog" aria-labelledby="crearEquipoModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="crearEquiposModalLabel">
+            <i class='bx bx-group'></i>
+            Crear Nuevo Contenido
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Formulario para crear un nuevo contenido -->
+          <form method="POST" action="{{ url_for('crear_contenido') }}">
+            <div class="form-group">
+              <label for="nameTeam">Titulo contenido</label>
+              <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="nameTeam">Descripción contenido</label>
+              <input type="text" class="form-control" id="description" name="description" required>
+            </div>
+            <br>
+            <div class="fomr-group">
+              <label for="new_rol">
+                <i class='bx bxs-graduation'></i>
+                <select class="form-select" aria-label="Contenido" name="type">
+                  <option selected>Contenido</option>
+                  <option value="Procedimental">Procedimental</option>
+                  <option value="Actitudinal">Actitudinal</option>
+                </select>
+              </label>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Crear Evento</button>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}

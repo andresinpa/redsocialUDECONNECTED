@@ -1,0 +1,87 @@
+{%extends 'layout.html'%}
+{% block title %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTeams.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesTasks.css')}}">
+<title>Tareas</title>
+{% endblock %}
+
+{%block body%}
+<div class="container-tasks">
+    <a href="{{ url_for('start') }}" class="home-icon">
+        <i class="bx bx-home"></i>
+    </a>
+
+    <h1 class="title">📆 Mis Tareas 📆</h1>
+    {%if dataTask.role =='Profesor'%}
+    <!-- Botón para abrir el modal de creación de tareas -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearTareaModal">
+        Crear Nueva Tarea
+    </button>
+    {%endif%}
+    <!-- Lista de proyectos -->
+    <ul>
+        {% for task in dataTask.tasks %}
+        <li>
+            <h4>
+                <i class='bx bxs-bell-ring'></i>
+                {{ task[1] }}
+            </h4>
+            <p class="task-title">{{ task[2] }} </p>
+            <p class="task-date">Fecha de inicio: ({{ task[3] }}) <br>Fecha de finalización: ({{ task[4] }}) </p>
+            <button type="button" class="btn btn-success" data-toggle="modal" id="complete" onclick="return confirm('¿Realmente se finalizó la tarea?')">
+                Tarea Completa
+            </button>
+            
+                <button type="button" class="btn btn-danger hide" data-toggle="modal" id="incomplete" onclick="return confirm('¿Desea recuperar la tarea?')">
+                    Tarea Incompleta
+                </button>
+
+        </li>
+        {% endfor %}
+    </ul>
+    <!-- Modal para crear tareas -->
+    <div class="modal fade" id="crearTareaModal" tabindex="-1" role="dialog" aria-labelledby="crearTareaModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="crearTareaModalLabel">
+                        <i class='bx bx-task' ></i>
+                        Crear Nueva Tarea
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="/save_tasks">
+                        <div class="form-group">
+                            <label for="nameTask">Nombre de la Tarea</label>
+                            <input type="text" class="form-control" id="nameTask" name="nameTask" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descriptionTask">Descripción de la tarea</label>
+                            <input type="text" class="form-control" id="descriptionTask" name="description" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateTask">Fecha de inicio</label>
+                            <input type="date" value="2023-06-01" name="initDate" />
+                        </div>
+                        <div class="form-group">
+                            <label for="dateTask">Fecha de finalización</label>
+                            <input type="date" class="calendar" value="2023-10-01" name="finishDate" />
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Nombre de Usuario</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Crear Tarea</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/tasks.js') }}"></script>
+{%endblock%}
